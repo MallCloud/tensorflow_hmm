@@ -2,9 +2,10 @@
 An example using both tensorflow and numpy implementations of viterbi
 replicating example on wikipedia
 """
+from __future__ import print_function
+
 __author__ = 'Marvin Bertin <marvin.bertin@gmail.com>'
 
-from __future__ import print_function
 import tensorflow as tf
 import numpy as np
 
@@ -56,7 +57,7 @@ def main():
     np_states, np_scores = np_model.viterbi_decode(y)
     print("Most likely States: ", [obs[s] for s in np_states])
     pathScores = np.array(np.exp(np_scores))
-    dptable(pathScores)
+    dptable(pathScores, pathScores, states)
 
 if __name__ == "__main__":
     main()
